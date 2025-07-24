@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vinos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+  <h1 class="mb-4">Inventario de Vinos</h1>
+  <a href="/agregar" class="btn btn-success mb-3">Agregar Vino</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th><th>Nombre</th><th>Tipo</th><th>Precio</th><th>Stock</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vino in vinos %}
+      <tr>
+        <td>{{ vino.id }}</td>
+        <td>{{ vino.nombre }}</td>
+        <td>{{ vino.tipo }}</td>
+        <td>S/. {{ vino.precio }}</td>
+        <td>{{ vino.stock }}</td>
+        <td>
+          <a href="/editar/{{ vino.id }}" class="btn btn-warning btn-sm">Editar</a>
+          <a href="/eliminar/{{ vino.id }}" class="btn btn-danger btn-sm">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
