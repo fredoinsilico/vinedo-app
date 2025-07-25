@@ -2,10 +2,19 @@
 
 from flask import Flask, render_template, request, redirect, url_for
 from model import db, Vino
+from config import DevelopmentConfig, ProductionConfig
+import os
+
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///vinos.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+env = os.environ.get("FLASK_ENV", "development")
+
+if env == "production":
+    app.config.from_object(ProductionConfig)
+else:
+    app.config.from_object(DevelopmentConfig)
+
 db.init_app(app)
 
 @app.before_request
