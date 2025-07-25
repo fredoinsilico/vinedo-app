@@ -29,3 +29,8 @@ jobs:
       run: |
         ls -la
         python --version
+
+
+    - name: Desplegar en Render
+      run: |
+        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
