@@ -1,0 +1,24 @@
+# Carpetas a ignorar
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Entornos virtuales
+venv/
+.env/
+
+# Archivos de configuración local
+*.env
+.DS_Store
+
+# Archivos específicos de IDE
+.vscode/
+.idea/
+
+# Archivos de base de datos temporales
+*.sqlite3
+*.db
+
+# Archivos de despliegue de Render
+*.log
